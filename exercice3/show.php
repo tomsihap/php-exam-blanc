@@ -12,6 +12,12 @@ $film = $response->execute([
 ]);
 
 $film = $response->fetch();
+
+if (!$film) {
+    
+    $_SESSION['list_error'] = true;
+    Header('Location: list.php');
+}
 ?>
 
 <!DOCTYPE html>

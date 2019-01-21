@@ -30,6 +30,15 @@ while ($movie = $response->fetch()) {
                 <p>
                     <h1>Liste des films au vidéoclub</h1>
                     <a href="add.php" class="btn btn-sm btn-danger">Ajouter un film</a>
+                    <hr>
+                    <ul class="list-group">
+                    <?php   
+                        if (!empty($_SESSION['list_error'])) {
+                            echo '<li class="list-group-item list-group-item-danger">Attention, le film demandé n\'existe pas ou a été supprimé.</li>';
+                            unset($_SESSION['list_error']);
+                        }
+                    ?>
+                    </ul>
                 </p>
 
 

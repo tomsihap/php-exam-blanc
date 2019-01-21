@@ -23,7 +23,8 @@
                     <?php   
                         if (!empty($_SESSION['form_error'])) {
                             foreach($_SESSION['form_error'] as $err) {
-                                echo '<li class="list-group-item list-group-item-danger"><?= $err; ?></li>';
+                                
+                                echo '<li class="list-group-item list-group-item-danger">'.$err.'</li>';
                             }
                             $_SESSION['form_error'] = [];
                         }
