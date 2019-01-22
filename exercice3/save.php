@@ -1,6 +1,11 @@
 <?php
 require_once('helper.php');
+
+
+
+
 /**
+ * 
  * Je vérifie si mes variables se transmettent bien avec var_dump($_POST);
  */
 
@@ -83,13 +88,15 @@ else {
 /**
  * Vidéo (nullable)
  */
+
+$regex = '/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/';
+
 if (empty($_POST['video'])) {
     $video = null;
 }
 
-elseif(!preg_match('/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/', $_POST['video'])) {
+elseif(!preg_match($regex, $_POST['video'])) {
     echo formError("La vidéo doit être une URL valide.");
-    return;
 }
 else {
     $video = $_POST['video'];

@@ -53,7 +53,7 @@
                     <label for="yearOfProdMovie">Année*</label>
                     <select id="yearOfProdMovie" class="form-control" name="year_of_prod">
                     <?php
-                        for ($i=1901; $i < 2030; $i++) {
+                        for ($i=1901; $i <= date('Y') + 10; $i++) {
                             echo "<option value='".$i."'>".$i."</option>";
                         }
                     ?>

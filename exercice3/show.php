@@ -3,19 +3,23 @@ require_once('helper.php');
 
 $bdd = dbConnect();
 
+/* 
+Version optimale avec un prepare/execute : 
+
 $request = 'SELECT * FROM movies_thomas WHERE id = :id';
 
 $response = $bdd->prepare($request);
 
 $film = $response->execute([
     'id' => $_GET['id']
-]);
+]); */
+
+$response = $bdd->query('SELECT * FROM movies_thomas WHERE id = ' . $_GET['id']);
 
 $film = $response->fetch();
 
 if (!$film) {
-    
-    $_SESSION['list_error'] = true;
+    $_SESSION['element_doesnt_exist'] = true;
     Header('Location: list.php');
 }
 ?>

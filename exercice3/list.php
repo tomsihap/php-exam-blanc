@@ -1,14 +1,16 @@
 <?php
 require_once('helper.php');
+
 $bdd = dbConnect();
 
 $request = "SELECT id, title, director, year_of_prod FROM movies_thomas";
+
 $response = $bdd->query($request);
 
 $movies = [];
 
-while ($movie = $response->fetch()) {
-    $movies[] = $movie;
+while ($film = $response->fetch()) {
+    $movies[] = $film;
 }
 
 ?>
@@ -33,9 +35,9 @@ while ($movie = $response->fetch()) {
                     <hr>
                     <ul class="list-group">
                     <?php   
-                        if (!empty($_SESSION['list_error'])) {
+                        if (!empty($_SESSION['element_doesnt_exist'])) {
                             echo '<li class="list-group-item list-group-item-danger">Attention, le film demandé n\'existe pas ou a été supprimé.</li>';
-                            unset($_SESSION['list_error']);
+                            unset($_SESSION['element_doesnt_exist']);
                         }
                     ?>
                     </ul>
@@ -55,7 +57,9 @@ while ($movie = $response->fetch()) {
                             <td><?= $m['title']; ?></td>
                             <td><?= $m['director']; ?></td>
                             <td><?= $m['year_of_prod']; ?></td>
-                            <td><a href="show.php?id=<?= $m['id']; ?>" class="btn btn-sm btn-primary">Plus d'infos</a></td>
+                            <td>
+                                <a href="show.php?id=<?= $m['id']; ?>" class="btn btn-sm btn-primary">Plus d'infos</a>
+                                </td>
                         </tr>
                     <?php } ?>
                 </table>
@@ -65,3 +69,10 @@ while ($movie = $response->fetch()) {
     </div>
 </body>
 </html>
+
+
+http://www.example.com/page.php?nom=thomas&prenom=durant&role=admin
+
+$_POST['titre']
+
+$_GET['nom']

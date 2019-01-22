@@ -12,7 +12,9 @@ function dbConnect() {
 
     try {
         $instanceBdd = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8;port='.$port, $login, $password);
+
     }
+
 
     catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
