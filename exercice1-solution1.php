@@ -11,7 +11,7 @@ $donnees = [
     'ville'     => 'Lyon',
     'email'     => 'john.doe@gmail.com',
     'phone'     => '0612345678',
-    'birthdate' =>  '1991/01/12'
+    'birthdate' =>  '1991-01-12'
 ];
 
 /**
@@ -21,7 +21,7 @@ echo '<ul>';
     foreach($donnees as $caracteristique => $valeur) {
 
         // Si je suis sur la caractéristique "birthdate", alors je la traite comme une date
-        if ($caracteristique == 'birthdate') {
+        if ($caracteristique === 'birthdate') {
             echo '<li>' . $caracteristique . ': ' . date('d/m/Y', strtotime($valeur));
         }
 
@@ -40,7 +40,7 @@ echo '</ul>';
 echo '<ul>';
 foreach($donnees as $caracteristique => $valeur) {
     
-    if ($caracteristique == 'birthdate') {
+    if ($caracteristique === 'birthdate') {
 
         $dateObject = new DateTime($valeur);
 

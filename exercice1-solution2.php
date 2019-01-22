@@ -13,7 +13,7 @@ $donnees = [
     'ville'     => 'Lyon',
     'email'     => 'john.doe@gmail.com',
     'phone'     => '0612345678',
-    'birthdate' =>  '1991/01/12'
+    'birthdate' =>  '1991-01-12'
 ];
 
 
